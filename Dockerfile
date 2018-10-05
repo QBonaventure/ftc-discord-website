@@ -24,8 +24,7 @@ COPY ./config/ /app/config/
 COPY ./bin/ /app/bin
 COPY ./data/ /app/data/
 COPY entrypoint.sh /
-RUN ls /app/config
-RUN ls /app/config/autoload
+
 RUN cp /app/config/autoload/bot.local.php.dist /app/config/autoload/bot.local.php && \
     cp /app/config/autoload/db.local.php.dist /app/config/autoload/db.local.php && \
     cp /app/config/autoload/session.local.php.dist /app/config/autoload/session.local.php && \
