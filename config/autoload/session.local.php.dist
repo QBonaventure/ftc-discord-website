@@ -4,9 +4,14 @@ declare(strict_types=1);
 
 return [
     'session' => [
-        'key' => file_get_contents('/run/secrets/ftcbot-website-session-key'),
+        'key' => [
+            "crv" => "",
+            "kty" => "",
+            "x" => "",
+            "y" => ""
+        ],
         'cookie_name' => 'slsession',
-        'oauth_server_uri' => getenv('DISCORD_OAUTH_TOKEN_ISSUER'),
+        'oauth_server_uri' => getenv('DISCORD_OAUTH_SERVER_URI'),
     ],
     'dependencies' => [
         'factories' => [
@@ -15,3 +20,4 @@ return [
         ]
     ],
 ];
+    
