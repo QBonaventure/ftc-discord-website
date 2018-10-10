@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Middleware;
+namespace App\Container\Middleware;
 
 use Psr\Container\ContainerInterface;
 use FTC\Discord\Model\Aggregate\GuildRepository;
 use FTC\Discord\Model\Aggregate\GuildRoleRepository;
 use Zend\Expressive\Template\TemplateRendererInterface;
+use App\Middleware\GuildSetupMiddleware;
 
 class GuildSetupMiddlewareFactory
 {
@@ -16,7 +17,7 @@ class GuildSetupMiddlewareFactory
         $guildRepository = $container->get(GuildRepository::class);
         $guildRoleRepository = $container->get(GuildRoleRepository::class);
         $templateRenderer = $container->get(TemplateRendererInterface::class);
-        
+        new dklfj;
         return new GuildSetupMiddleware($guildRepository, $guildRoleRepository, $templateRenderer);
     }
 }

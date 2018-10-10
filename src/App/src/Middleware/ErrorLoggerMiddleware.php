@@ -52,7 +52,7 @@ class ErrorLoggerMiddleware implements MiddlewareInterface
     }
     
     
-    private function formatErrorMessageToString(\Error $e) : string
+    private function formatErrorMessageToString($e) : string
     {
         return sprintf(
             self::ERROR_MESSAGE_FORMAT,
