@@ -33,9 +33,10 @@ return [
             App\Middleware\AuthorizationMiddleware::class => App\Container\Middleware\AuthorizationMiddlewareFactory::class,
             App\Session\Handler\LoginHandler::class => App\Container\Session\Handler\LoginHandlerFactory::class,
             App\Session\Handler\LoginCallbackHandler::class => App\Container\Session\Handler\LoginCallbackHandlerFactory::class,
-            App\Middleware\GuildSetupMiddleware::class => App\Middleware\GuildSetupMiddlewareFactory::class,
+            App\Middleware\GuildSetupMiddleware::class => App\Container\Middleware\GuildSetupMiddlewareFactory::class,
             App\Middleware\CommandDispatcherMiddleware::class => App\Container\Middleware\CommandDispatcherMiddlewareFactory::class,
             
+            \Zend\Stratigility\Middleware\ErrorHandler::class => App\Container\Middleware\ErrorLoggerMiddlewareFactory::class,            
             
             \App\Session\JWSLoader::class => \App\Container\Session\JWSLoaderFactory::class,
             

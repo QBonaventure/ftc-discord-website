@@ -1,5 +1,6 @@
-FROM php:7.2-fpm-alpine
-MAINTAINER Quentin Bonaventure <q.bonaventure@gmail.com>
+FROM php:7.3-rc-fpm-alpine3.8
+
+LABEL maintainer "Quentin Bonaventure <q.bonaventure@gmail.com>"
 
 RUN apk --update --no-cache add \
     git \
@@ -35,5 +36,11 @@ RUN chmod +x /entrypoint.sh && \
   chown -R www-data:www-data /app
   
 
+ENV LOG_STREAM="/tmp/stdout"
+RUN mkfifo $LOG_STREAM && chmod 777 $LOG_STREAM
+  
   
 ENTRYPOINT ["/entrypoint.sh"]
+
+CMD ["sh", "-c", "exec 3<>/tmp/stdout; cat <&3 >&2 & exec php-fpm >/tmp/stdout 2>&1"]
+#CMD ["php-fpm"]
