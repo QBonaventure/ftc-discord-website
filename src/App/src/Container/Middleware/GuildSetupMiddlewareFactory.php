@@ -17,7 +17,7 @@ class GuildSetupMiddlewareFactory
         $guildRepository = $container->get(GuildRepository::class);
         $guildRoleRepository = $container->get(GuildRoleRepository::class);
         $templateRenderer = $container->get(TemplateRendererInterface::class);
-        new dklfj;
+
         return new GuildSetupMiddleware($guildRepository, $guildRoleRepository, $templateRenderer);
     }
 }

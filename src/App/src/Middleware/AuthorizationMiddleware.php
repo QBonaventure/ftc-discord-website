@@ -126,7 +126,7 @@ class AuthorizationMiddleware implements MiddlewareInterface
     private function isGranted($user, $routeName)
     {
         return (!empty(array_filter($user['roles'], function($role) use ($routeName) {
-            return $this->rbac->isGranted((string) $role['role_id'], $routeName);
+            return $this->rbac->isGranted((string) $role['id'], $routeName);
         })));
     }
     

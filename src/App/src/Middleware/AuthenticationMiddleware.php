@@ -35,19 +35,30 @@ class AuthenticationMiddleware implements MiddlewareInterface
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler) : ResponseInterface
     {
         $session = $request->getAttribute(SessionMiddleware::SESSION_ATTRIBUTE);
-
         $guild = $request->getAttribute(Guild::class);
 
         if ($guild && $session->isEmpty()) {
-            $session->set('user', [
-                'roles' => [['role_id' => $request->getAttribute(Guild::class)->getId()->__toString()]],
-            ]);
+            $session->set('user', ['roles' => []]);
         }
-
+        
+        $user = $session->get('user');
+        
+        $user['roles'][] = $this->createEveryoneRole($guild);
+        
+        $session->set('user', $user);
+        
         $this->template->addDefaultParam(TemplateRendererInterface::TEMPLATE_ALL, 'oauthServerUri', $this->oauthServerUri);
         $this->template->addDefaultParam(TemplateRendererInterface::TEMPLATE_ALL, 'user', $session->get('user'));
         
         return $handler->handle($request);
+    }
+    
+    private function createEveryoneRole(Guild $guild)
+    {
+        return [
+            'id' => $guild->getId()->__toString(),
+            'name' => '@everyone',
+        ];
     }
     
 }
