@@ -23,7 +23,7 @@ COPY ./src/ /app/src/
 COPY ./public/ /app/public/
 COPY ./config/ /app/config/
 COPY ./bin/ /app/bin
-COPY ./data/ /app/data/
+RUN mkdir -p ./data/cache
 COPY entrypoint.sh /
 
 RUN cp /app/config/autoload/bot.local.php.dist /app/config/autoload/bot.local.php && \
