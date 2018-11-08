@@ -29,7 +29,8 @@ COPY entrypoint.sh /
 RUN cp /app/config/autoload/bot.local.php.dist /app/config/autoload/bot.local.php && \
     cp /app/config/autoload/db.local.php.dist /app/config/autoload/db.local.php && \
     cp /app/config/autoload/session.local.php.dist /app/config/autoload/session.local.php && \
-    cp /app/config/autoload/cache.local.php.dist /app/config/autoload/cache.local.php 
+    cp /app/config/autoload/cache.local.php.dist /app/config/autoload/cache.local.php  && \
+    cp /app/config/autoload/cdn.local.php.dist /app/config/autoload/cdn.local.php 
 
 RUN chmod +x /entrypoint.sh && \
   chmod a+w /app/data/cache/ && \

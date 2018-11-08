@@ -40,6 +40,8 @@ return [
             
             \App\Session\JWSLoader::class => \App\Container\Session\JWSLoaderFactory::class,
             
+            \App\View\Helper\CdnLocator::class => \App\Container\View\Helper\CdnLocatorFactory::class,
+            
             'database' => FTC\Database\ClientFactory::class,
             'discord_oauth' => App\Container\OAuthFactory::class,
             'http-client' => App\Container\HttpClientFactory::class,

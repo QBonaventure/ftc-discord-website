@@ -1,0 +1,13 @@
+<?php
+
+return [
+    'cdn' => [
+        'host' => trim(getenv('FTCBOT_CDN_HOST')),
+        'paths' => [
+            'css' => 'stylesheets',
+            'js' => 'stylesheets',
+            'ico' => 'assets',
+        ],
+        'localBasePath' => 'public'
+    ],
+];

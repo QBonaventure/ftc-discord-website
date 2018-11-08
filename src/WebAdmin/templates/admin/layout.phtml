@@ -1,7 +1,7 @@
 <?php $this->layout('layout::default'); ?>
 
 <?php $this->push('stylesheets'); ?>
-	<link rel="stylesheet" type="text/css" href="/stylesheets/admin.css" />
+	<link rel="stylesheet" type="text/css" href="<?= $this->e($this->cssLocator('admin')); ?>" />
 <?php $this->end(); ?>
 
 
